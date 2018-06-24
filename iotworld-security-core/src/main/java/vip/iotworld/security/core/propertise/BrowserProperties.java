@@ -4,10 +4,8 @@ public class BrowserProperties {
 		
 	private String loginPage = "/iotworld-signIn.html";
 	
-	private LoginResponseType loginType = LoginResponseType.JSON;
+	private LoginType loginType = LoginType.JSON;
 	
-
-
 	public String getLoginPage() {
 		return loginPage;
 	}
@@ -16,11 +14,11 @@ public class BrowserProperties {
 		this.loginPage = loginPage;
 	}
 
-	public LoginResponseType getLoginType() {
+	public LoginType getLoginType() {
 		return loginType;
 	}
 
-	public void setLoginType(LoginResponseType loginType) {
+	public void setLoginType(LoginType loginType) {
 		this.loginType = loginType;
 	}
 

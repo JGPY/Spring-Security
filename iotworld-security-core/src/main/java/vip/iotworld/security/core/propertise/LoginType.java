@@ -1,6 +1,6 @@
 package vip.iotworld.security.core.propertise;
 
-public enum LoginResponseType {
+public enum LoginType {
 	
 	/**
 	 * 跳转

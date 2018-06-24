@@ -11,15 +11,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import vip.iotworld.security.core.propertise.LoginType;
 import vip.iotworld.security.core.propertise.SecurityPropertise;
 
 @Component("IotworldAuthenticationSucessHandler")
-public class IotworldAuthenticationSucessHandler implements AuthenticationSuccessHandler{
+public class IotworldAuthenticationSucessHandler extends SavedRequestAwareAuthenticationSuccessHandler{
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
@@ -34,8 +35,12 @@ public class IotworldAuthenticationSucessHandler implements AuthenticationSucces
 		
 		logger.info("登陆成功");
 		
-		response.setContentType("application/json;charset=UTF-8");
-		response.getWriter().write(objectMapper.writeValueAsString(authentication));
+		if (LoginType.JSON.equals(securityPropertise.getBrowserProperties().getLoginType())) {
+			response.setContentType("application/json;charset=UTF-8");
+			response.getWriter().write(objectMapper.writeValueAsString(authentication));
+		}else {
+			super.onAuthenticationSuccess(request, response, authentication);
+		}
 	}
 
 }
