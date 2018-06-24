@@ -16,6 +16,8 @@ import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import vip.iotworld.security.core.propertise.SecurityPropertise;
+
 @Component("IotworldAuthenticationSucessHandler")
 public class IotworldAuthenticationSucessHandler implements AuthenticationSuccessHandler{
 
@@ -23,6 +25,9 @@ public class IotworldAuthenticationSucessHandler implements AuthenticationSucces
 	
 	@Autowired
 	private ObjectMapper objectMapper;
+	
+	@Autowired
+	private SecurityPropertise securityPropertise;
 	
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication authentication) throws IOException, ServletException {
