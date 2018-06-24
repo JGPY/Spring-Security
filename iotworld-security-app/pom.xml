@@ -1,0 +1,21 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>iotworld-security-app</artifactId>
+    <parent>
+        <groupId>vip.iotworld.security</groupId>
+        <artifactId>iotworld-security</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../iotworld-security</relativePath>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>vip.iotworld.security</groupId>
+            <artifactId>iotworld-security-core</artifactId>
+            <version>${iotworld.security.version}</version>
+        </dependency>
+    </dependencies>
+    
+</project>
